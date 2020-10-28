@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-function DrawingBoard(props) {
+function DrawingBoard({ cursorStyle }) {
   const drawingBoardRef = useRef(null);
   const canvasContext = useRef(null);
 
@@ -24,6 +24,12 @@ function DrawingBoard(props) {
       canvasContext.current.clearRect(0, 0, canvas.width, canvas.height);
     };
   }, []);
+
+  useEffect(() => {
+    canvasContext.current.strokeStyle = cursorStyle.strokeStyle;
+    canvasContext.current.lineWidth = cursorStyle.lineWidth;
+    canvasContext.current.globalAlpha = cursorStyle.opacity;
+  }, [cursorStyle]);
 
   function onMouseDown(event) {
     const { offsetX, offsetY } = event.nativeEvent;
@@ -52,6 +58,12 @@ function DrawingBoard(props) {
   );
 }
 
-DrawingBoard.propTypes = {};
+DrawingBoard.propTypes = {
+  cursorStyle: PropTypes.shape({
+    lineWidth: PropTypes.number,
+    opacity: PropTypes.number,
+    strokeStyle: PropTypes.string,
+  }),
+};
 
 export default DrawingBoard;

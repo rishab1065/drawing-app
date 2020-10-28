@@ -25,6 +25,9 @@
       &.Highlighter {
         background-image: url('../../assets/svgs/highlighter.svg');
       }
+      &.selected {
+        background-color: #d8ddf7;
+      }
     }
   }
   .SubTools_Container {
@@ -103,6 +106,7 @@
   &:hover {
     .Tooltip_Text {
       visibility: visible;
+      pointer-events: none;
     }
   }
 }
