@@ -1,0 +1,75 @@
+.Toolbar {
+  position: absolute;
+  left: 1em;
+  display: flex;
+  align-items: center;
+  .Tools_Container {
+    box-shadow: 0px 0px 10px #00000029;
+    border-radius: 0.8em;
+    padding: 0.5em;
+    flex-direction: column;
+    display: flex;
+    .Tool {
+      border-radius: 0.8em;
+      &:hover {
+        background-color: #f2f3f9;
+      }
+    }
+  }
+  .SubTools_Container {
+    box-shadow: 0px 0px 10px #00000029;
+    border-radius: 0.8em;
+    padding: 0.5em;
+    flex-direction: column;
+    display: flex;
+    margin-left: 0.8em;
+    .Brush_Thickness {
+      height: 44px;
+      width: 44px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      border-radius: 0.8em;
+      &:hover {
+        background-color: #f2f3f9;
+      }
+      .Brush_Small {
+        height: 5px;
+        width: 5px;
+        background-color: black;
+        border-radius: 50%;
+      }
+      .Brush_Medium {
+        height: 10px;
+        width: 10px;
+        background-color: black;
+        border-radius: 50%;
+      }
+      .Brush_Large {
+        height: 15px;
+        width: 15px;
+        background-color: black;
+        border-radius: 50%;
+      }
+    }
+    .Tool_Color {
+      height: 44px;
+      width: 44px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      &:hover {
+        background-color: #f2f3f9;
+      }
+      input[type='color'] {
+        height: 34px;
+        width: 34px;
+        padding: 0px;
+        background-color: white;
+        border: 0px;
+        border-radius: 0.8em;
+        outline: none;
+      }
+    }
+  }
+}
