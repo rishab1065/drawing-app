@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import useOnClickOutside from './onClickOutsideHook';
 import './Toolbar.scss';
 
 function Toolbar({ cursorStyle, setCursorStyle }) {
@@ -18,9 +19,15 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
     }
     return { lineWidth, opacity, strokeStyle };
   };
-  
+  const toolbarRef = useRef();
+
+  useOnClickOutside(
+    toolbarRef,
+    useCallback(() => setSelectedTool(null), [])
+  );
+
   return (
-    <div className="Toolbar">
+    <div className="Toolbar" ref={toolbarRef}>
       <div className="Tools_Container">
         <div
           className={`Tool Brush Tooltip ${
@@ -49,14 +56,7 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
           }`}
           onClick={() => {
             setSelectedTool('eraser');
-            setCursorStyle(
-              getCursorStyle(
-                cursorStyle.lineWidth,
-                cursorStyle.opacity,
-                'white',
-                'eraser'
-              )
-            );
+            setCursorStyle(getCursorStyle(5, 1, 'white', 'eraser'));
           }}
         >
           <div className="Tooltip_Text">Eraser</div>
