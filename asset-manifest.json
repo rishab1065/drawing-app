@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/drawing-app/static/css/main.d54be6cd.chunk.css",
-    "main.js": "/drawing-app/static/js/main.b194c57c.chunk.js",
-    "main.js.map": "/drawing-app/static/js/main.b194c57c.chunk.js.map",
+    "main.css": "/drawing-app/static/css/main.070928e1.chunk.css",
+    "main.js": "/drawing-app/static/js/main.c9c8fdf4.chunk.js",
+    "main.js.map": "/drawing-app/static/js/main.c9c8fdf4.chunk.js.map",
     "runtime-main.js": "/drawing-app/static/js/runtime-main.442cb928.js",
     "runtime-main.js.map": "/drawing-app/static/js/runtime-main.442cb928.js.map",
     "static/js/2.a3b22519.chunk.js": "/drawing-app/static/js/2.a3b22519.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.fb9ea6d1.chunk.js": "/drawing-app/static/js/3.fb9ea6d1.chunk.js",
     "static/js/3.fb9ea6d1.chunk.js.map": "/drawing-app/static/js/3.fb9ea6d1.chunk.js.map",
     "index.html": "/drawing-app/index.html",
-    "static/css/main.d54be6cd.chunk.css.map": "/drawing-app/static/css/main.d54be6cd.chunk.css.map",
+    "static/css/main.070928e1.chunk.css.map": "/drawing-app/static/css/main.070928e1.chunk.css.map",
     "static/js/2.a3b22519.chunk.js.LICENSE.txt": "/drawing-app/static/js/2.a3b22519.chunk.js.LICENSE.txt",
     "static/media/Toolbar.scss": "/drawing-app/static/media/highlighter.532a9eb8.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.442cb928.js",
     "static/js/2.a3b22519.chunk.js",
-    "static/css/main.d54be6cd.chunk.css",
-    "static/js/main.b194c57c.chunk.js"
+    "static/css/main.070928e1.chunk.css",
+    "static/js/main.c9c8fdf4.chunk.js"
   ]
 }
