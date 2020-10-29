@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import DrawingBoard from './components/DrawingBoard';
+import Header from './components/Header';
 import Toolbar from './components/Toolbar';
 
 function App() {
@@ -11,8 +12,9 @@ function App() {
 
   return (
     <div className="App">
-      <Toolbar cursorStyle={cursorStyle} setCursorStyle={setCursorStyle} />
       <DrawingBoard cursorStyle={cursorStyle} />
+      <Header />
+      <Toolbar cursorStyle={cursorStyle} setCursorStyle={setCursorStyle} />
     </div>
   );
 }

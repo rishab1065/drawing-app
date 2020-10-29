@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
+import './DrawingBoard.scss';
 function DrawingBoard({ cursorStyle }) {
   const drawingBoardRef = useRef(null);
   const canvasContext = useRef(null);
