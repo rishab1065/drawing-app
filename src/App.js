@@ -10,11 +10,16 @@ function App() {
     strokeStyle: 'black',
   });
 
+  const [recordSroke, setRecordStroke] = useState(true);
   return (
     <div className="App">
-      <DrawingBoard cursorStyle={cursorStyle} />
+      <DrawingBoard cursorStyle={cursorStyle} recordSroke={recordSroke} />
       <Header />
-      <Toolbar cursorStyle={cursorStyle} setCursorStyle={setCursorStyle} />
+      <Toolbar
+        cursorStyle={cursorStyle}
+        setCursorStyle={setCursorStyle}
+        setRecordStroke={setRecordStroke}
+      />
     </div>
   );
 }

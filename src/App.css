@@ -4,6 +4,7 @@
   align-items: center;
   display: flex;
   height: 100vh;
+  background-color: rgb(247, 246, 246);
 }
 
 .App-logo {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import useOnClickOutside from './onClickOutsideHook';
 import './Toolbar.scss';
 
-function Toolbar({ cursorStyle, setCursorStyle }) {
+function Toolbar({ cursorStyle, setCursorStyle, setRecordStroke }) {
   const [selectedTool, setSelectedTool] = useState(null);
 
   const onColorChange = (event) => {
@@ -33,7 +33,12 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
           className={`Tool Brush Tooltip ${
             selectedTool === 'brush' ? 'selected' : ''
           }`}
-          onClick={() => setSelectedTool('brush')}
+          onClick={() => {
+            setSelectedTool('brush');
+            setCursorStyle(
+              getCursorStyle(1, 1, cursorStyle.strokeStyle, 'brush')
+            );
+          }}
         >
           <div className="Tooltip_Text">Brush</div>
         </div>
@@ -43,6 +48,7 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
           }`}
           onClick={() => {
             setSelectedTool('highlighter');
+            setRecordStroke(false);
             setCursorStyle(
               getCursorStyle(5, 0.5, cursorStyle.strokeStyle, 'highlighter')
             );
@@ -57,6 +63,7 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
           onClick={() => {
             setSelectedTool('eraser');
             setCursorStyle(getCursorStyle(5, 1, 'white', 'eraser'));
+            setRecordStroke(true);
           }}
         >
           <div className="Tooltip_Text">Eraser</div>
@@ -73,6 +80,7 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
                     getCursorStyle(1, 1, cursorStyle.strokeStyle, 'brush')
                   );
                   setSelectedTool(null);
+                  setRecordStroke(true);
                 }}
               >
                 <div className="Brush_Small" />
@@ -85,6 +93,7 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
                     getCursorStyle(3, 1, cursorStyle.strokeStyle, 'brush')
                   );
                   setSelectedTool(null);
+                  setRecordStroke(true);
                 }}
               >
                 <div className="Brush_Medium" />
@@ -97,6 +106,7 @@ function Toolbar({ cursorStyle, setCursorStyle }) {
                     getCursorStyle(5, 1, cursorStyle.strokeStyle, 'brush')
                   );
                   setSelectedTool(null);
+                  setRecordStroke(true);
                 }}
               >
                 <div className="Brush_Large" />
