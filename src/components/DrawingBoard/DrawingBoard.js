@@ -105,6 +105,7 @@ DrawingBoard.propTypes = {
     opacity: PropTypes.number,
     strokeStyle: PropTypes.string,
   }),
+  recordSroke: PropTypes.bool,
 };
 
 export default DrawingBoard;

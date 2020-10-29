@@ -136,6 +136,7 @@ Toolbar.propTypes = {
     strokeStyle: PropTypes.string,
   }),
   setCursorStyle: PropTypes.func,
+  setRecordStroke: PropTypes.func,
 };
 
 export default Toolbar;
