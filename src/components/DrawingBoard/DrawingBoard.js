@@ -2,10 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './DrawingBoard.scss';
 function DrawingBoard({ cursorStyle, recordSroke }) {
-  const history = [];
-
   const drawingBoardRef = useRef(null);
   const canvasContext = useRef(null);
+  const history = useRef([]);
 
   const [isDrawing, setIsDrawing] = useState(false);
 
@@ -36,7 +35,12 @@ function DrawingBoard({ cursorStyle, recordSroke }) {
     canvasContext.current.lineWidth = cursorStyle.lineWidth;
     canvasContext.current.globalAlpha = cursorStyle.opacity;
     if (recordSroke) {
-      history.push({ action: 'beginPath', offsetX, offsetY, ...cursorStyle });
+      history.current.push({
+        action: 'beginPath',
+        offsetX,
+        offsetY,
+        ...cursorStyle,
+      });
     }
     canvasContext.current.beginPath();
     canvasContext.current.moveTo(offsetX, offsetY);
@@ -48,22 +52,27 @@ function DrawingBoard({ cursorStyle, recordSroke }) {
     const { offsetX, offsetY } = event.nativeEvent;
     if (!canvasContext || !canvasContext.current || !isDrawing) return;
     if (recordSroke) {
-      history.push({ action: 'lineTo', offsetX, offsetY, ...cursorStyle });
+      history.current.push({
+        action: 'lineTo',
+        offsetX,
+        offsetY,
+        ...cursorStyle,
+      });
     }
     canvasContext.current.lineTo(offsetX, offsetY);
     canvasContext.current.stroke();
   }
 
   function restoreState() {
-    var i = 0;
+    let i = 0;
     canvasContext.current.clearRect(
       0,
       0,
       drawingBoardRef.current.width,
       drawingBoardRef.current.height
     );
-    while (i < history.length) {
-      let state = history[i];
+    while (i < history.current.length) {
+      let state = history.current[i];
       canvasContext.current.strokeStyle = state.strokeStyle;
       canvasContext.current.lineWidth = state.lineWidth;
       canvasContext.current.globalAlpha = state.opacity;
